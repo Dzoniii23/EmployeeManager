@@ -1,0 +1,61 @@
+﻿<Window x:Class="UserInterface.Windows.FilterOrders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface.Windows"
+        mc:Ignorable="d"
+        Title="Filter orders" Width="250" Height="600" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Employee ID:"/>
+            <TextBox x:Name="txtEmpId" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Customer ID:"/>
+            <TextBox x:Name="txtCustId" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Company Name:"/>
+            <TextBox x:Name="txtCompanyName" Margin="0,0,0,10"/>
+
+            <TextBlock Text="City:"/>
+            <TextBox x:Name="txtCity" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Region:"/>
+            <TextBox x:Name="txtRegion" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Country:"/>
+            <TextBox x:Name="txtCountry" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Order Date From:"/>
+            <DatePicker x:Name="dpOrderDateFrom" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Order Date To:"/>
+            <DatePicker x:Name="dpOrderDateTo" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Required Date From:"/>
+            <DatePicker x:Name="dpRequiredDateFrom" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Required Date To:"/>
+            <DatePicker x:Name="dpRequiredDateTo" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Select order state:"/>
+            <ComboBox x:Name="stateComboBox"
+                      SelectedItem="{Binding State}"
+                      DisplayMemberPath="Content"
+                      SelectedValuePath="Tag"
+                      IsEditable="True"
+                      Margin="0,0,0,10">
+                <ComboBoxItem Content="All" Tag="{x:Null}"/>
+                <ComboBoxItem Content="Unknown" Tag="0"/>
+                <ComboBoxItem Content="In Production" Tag="1"/>
+                <ComboBoxItem Content="To Be Shipped" Tag="2"/>
+                <ComboBoxItem Content="Shipped" Tag="3"/>
+                <ComboBoxItem Content="Closed" Tag="4"/>
+            </ComboBox>
+
+            <Button x:Name="btnFilter" Content="Filter" 
+                    Style="{StaticResource TextualButtonStyle}" 
+                    HorizontalAlignment="Left" Click="btnFilter_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

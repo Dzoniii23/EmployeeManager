@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="UserInterface.Views.LogonDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserInterface.Views"
+             xmlns:services="clr-namespace:UserInterface.Services"
+             xmlns:y="clr-namespace:UserInterface"
+             mc:Ignorable="d"
+             KeyDown="UserControl_KeyDownAsync"
+             Width="192"
+             MinHeight="240">
+    <UserControl.Resources>
+        <services:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+    </UserControl.Resources>
+    <Grid>
+
+        <Image 
+            x:Name="imgLogo"
+            Source="C:\Users\Dzoni\Desktop\EmployeeManager\UserInterface\Images\EmployeeManager.png"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="66,10,0,0" 
+            Height="60" 
+            Width="192"/>
+
+        <Label
+            x:Name="lblUsername"
+            Content="Username:" 
+            Foreground="#8778b0"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Margin="0,80,0,0" 
+            Padding="0"/>
+
+        <TextBox 
+            x:Name="txtUsername"
+            IsEnabled="{Binding IsVisible, Converter={StaticResource InverseBooleanConverter}, ElementName=loadingPanel}"
+            Foreground="#8778b0"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top"
+            VerticalContentAlignment="Center"
+            TextAlignment="Left" 
+            TextWrapping="Wrap" 
+            FontSize="16"
+            FontWeight="Light"
+            Margin="0,100,0,0"
+            Height="30"
+            Width="192" />
+
+        <Label
+            x:Name="lblPassword"
+            Content="Password:" 
+            Foreground="#8778b0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" 
+            Margin="0,140,0,0" 
+            Padding="0"/>
+
+        <PasswordBox 
+            x:Name="txtPassword"
+            IsEnabled="{Binding IsVisible, Converter={StaticResource InverseBooleanConverter}, ElementName=loadingPanel}"
+            HorizontalAlignment="Center" 
+            Margin="0,160,0,0" 
+            Height="30"
+            Width="192"
+            Foreground="#8778b0"
+            VerticalContentAlignment="Center"
+            FontSize="16"
+            FontWeight="Light"
+            VerticalAlignment="Top"
+            PasswordChar="*"/>
+
+        <Button 
+            x:Name="btnLogin" 
+            IsEnabled="{Binding IsVisible, Converter={StaticResource InverseBooleanConverter}, ElementName=loadingPanel}"
+            Content="LOGON"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center" 
+            Foreground="White"
+            Background="#4287f5"
+            FontSize="16"
+            FontWeight="Light"  
+            Height="30"
+            Width="192"
+            Margin="0,210,0,0" 
+            Click="btnLogin_ClickAsync"/>
+
+        <TextBox
+            x:Name="txtError"
+            IsEnabled="{Binding IsVisible, Converter={StaticResource InverseBooleanConverter}, ElementName=loadingPanel}"
+            Foreground="Red"
+            Background="Transparent"
+            BorderThickness="0"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            VerticalContentAlignment="Center"
+            TextAlignment="Left" 
+            TextWrapping="Wrap" 
+            FontSize="10"
+            FontWeight="Normal"
+            Margin="0,250,0,0" 
+            Text="Lorem ipsum dolor sit amet..."
+            Visibility="Hidden"/>
+
+        <StackPanel x:Name="loadingPanel" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
+            <TextBlock Text="Logging in progress..." Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ProgressBar IsIndeterminate="True" Width="100" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="UserInterface.Views.UserProfile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserInterface.Views"
+             mc:Ignorable="d"  >
+    <UserControl.Resources>
+        <Style x:Key="LabelFormat" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="#8778b0" />
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Padding" Value="0,2,0,2" />
+        </Style>
+        <Style x:Key="ContentFormat" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="#8778b0" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Padding" Value="10,2,0,2" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Button x:Name="btnBack" Content="Back" Style="{StaticResource TextualButtonStyle}"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" 
+                Click="btnBack_Click" >
+        </Button>
+
+        <Image 
+            x:Name="userPhoto"
+            Stretch="Fill"
+            Source="{Binding PhotoUrl}"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="20,50,0,20" 
+            Height="100" 
+            Width="100"
+            >
+            <Image.Effect>
+                <DropShadowEffect Opacity="0.415" />
+            </Image.Effect>
+        </Image>
+
+        <Grid x:Name="userDetailsTable" Margin="20,170,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="0" Text="Employee id:"/>
+            <TextBlock x:Name="txtLn1" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="0" Text="1"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="1" Text="Title:"/>
+            <TextBlock x:Name="txtLn2" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="1" Text="Ms."/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="2" Text="First name:"/>
+            <TextBlock x:Name="txtLn3" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="2" Text="Sara"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="3" Text="Last name:"/>
+            <TextBlock x:Name="txtLn4" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="3" Text="Davis"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="4" Text="Position:"/>
+            <TextBlock x:Name="txtLn5" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="4" Text="CEO"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="5" Text="Birth date:"/>
+            <TextBlock x:Name="txtLn6" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="5" Text="1958-12-08"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="6" Text="Hire date:"/>
+            <TextBlock x:Name="txtLn7" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="6" Text="2002-05-01"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="7" Text="Address:"/>
+            <TextBlock x:Name="txtLn8" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="7" Text="7890 - 20th Ave. E., Apt. 2A"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="8" Text="City:"/>
+            <TextBlock x:Name="txtLn9" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="8" Text="Seattle"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="9" Text="Postal code:"/>
+            <TextBlock x:Name="txtLn10" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="9" Text="10003"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="10" Text="Country:"/>
+            <TextBlock x:Name="txtLn11" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="10" Text="USA"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="11" Text="Phone:"/>
+            <TextBlock x:Name="txtLn12" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="11" Text="(206) 555-0101"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="12" Text="Roles assigned:"/>
+            <TextBlock x:Name="txtLn13" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="12" Text="Administrator"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="13" Text="Username:"/>
+            <TextBlock x:Name="txtLn14" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="13" Text="davsar"/>
+
+            <TextBlock Style="{StaticResource LabelFormat}" Grid.Column="0" Grid.Row="14" Text="Manager:"/>
+            <TextBlock x:Name="txtLn15" Style="{StaticResource ContentFormat}" Grid.Column="1" Grid.Row="14" Text="N/A"/>
+
+            <Button x:Name="btnChangePass" Content="Change password" Style="{StaticResource TextualButtonStyle}"
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
+                    Grid.Column="1" Grid.Row="15" 
+                    Click="btnChangePass_Click">
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

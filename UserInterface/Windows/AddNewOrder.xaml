@@ -1,0 +1,128 @@
+﻿<Window x:Class="UserInterface.Windows.AddNewOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface.Windows"
+        xmlns:services="clr-namespace:UserInterface.Services"
+        mc:Ignorable="d"
+        Title="Add new order" Height="800" Width="800" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <services:PercentageConverter x:Key="PercentageConverter"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="10">
+            <Grid x:Name="gridOrderDetails">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="300" />
+                    <ColumnDefinition MaxWidth="300"/>
+                    <ColumnDefinition MaxWidth="300"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Padding="0,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="CUSTOMER DETAILS" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="Customer ID:"/>
+                        <ComboBox x:Name="cbCustId" Margin="0,0,0,5" IsEditable="True" SelectionChanged="cbCustId_SelectionChanged"/>
+
+                        <TextBlock Text="Company Name:"/>
+                        <TextBox x:Name="txtCompanyName" Margin="0,0,0,5" IsEnabled="False"/>
+
+                        <TextBlock Text="Contact Name:"/>
+                        <TextBox x:Name="txtContactName" Margin="0,0,0,5" IsEnabled="False"/>
+
+                        <TextBlock Text="City:"/>
+                        <TextBox x:Name="txtCity" Margin="0,0,0,5" IsEnabled="False"/>
+
+                        <TextBlock Text="Postal Code:"/>
+                        <TextBox x:Name="txtPostalCode" Margin="0,0,0,5" IsEnabled="False"/>
+
+                        <TextBlock Text="Region:"/>
+                        <TextBox x:Name="txtRegion" Margin="0,0,0,5" IsEnabled="False"/>
+
+                        <TextBlock Text="Country:"/>
+                        <TextBox x:Name="txtCountry" Margin="0,0,0,5" IsEnabled="False"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" Padding="10,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="SHIPPING DETAILS" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="Shiping Recipient Name:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtShipToName" Margin="0,0,0,5"/>
+
+                        <TextBlock Text="Ship To Address:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtShipToAddress" Margin="0,0,0,5"/>
+
+                        <TextBlock Text="Ship To City:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtShipToCity" Margin="0,0,0,5"/>
+
+                        <TextBlock Text="Ship To Region:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtShipToRegion" Margin="0,0,0,5"/>
+
+                        <TextBlock Text="Ship To Postal Code:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtShipToPostalCode" Margin="0,0,0,5"/>
+
+                        <TextBlock Text="Ship To Country:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtShipToCountry" Margin="0,0,0,5"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="2" Padding="10,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="ORDER DETAILS" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="Order Id:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtOrderId" Margin="0,0,0,5" IsEnabled="False"/>
+
+                        <TextBlock Text="Employee Id:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtEmployeeId" Margin="0,0,0,5" IsEnabled="False"/>
+
+                        <TextBlock Text="Order State:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtOrderState" Margin="0,0,0,5" IsEnabled="False"/>
+
+                        <TextBlock Text="Order Date:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtOrderDate" Margin="0,0,0,5" IsEnabled="False"/>
+
+                        <TextBlock Text="Required Date:" Margin="0,0,0,0"/>
+                        <DatePicker x:Name="dpRequiredDate" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="Shipped Date:" Margin="0,0,0,0"/>
+                        <TextBox x:Name="txtShippedDate" Margin="0,0,0,5" IsEnabled="False"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Grid x:Name="gridButtons" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnAdd" Grid.Column="0" Style="{StaticResource AddButtonStyle}" Click="btnAdd_Click"></Button>
+                <Button x:Name="btnEditItem" Grid.Column="1" Margin="10,0,0,0" Style="{StaticResource EditButtonStyle}" Click="btnEditItem_Click" ></Button>
+                <Button x:Name="btnSave" Grid.Column="2" Margin="10,0,0,0" Style="{StaticResource SaveButtonStyle}" Click="btnSave_Click" ></Button>
+                <Button x:Name="btnDeleteItem" Grid.Column="3" Margin="10,0,0,0" Style="{StaticResource DeleteButtonStyle}" Click="btnDeleteItem_Click" ></Button>
+                <!--<Button x:Name="btnExport" Grid.Column="4" Margin="10,0,0,0" Style="{StaticResource ExportButtonStyle}"></Button>-->
+            </Grid>
+            <Grid x:Name="gridProductsList" Margin="0,10,0,0">
+                <TextBlock Text="List of products:"/>
+                <ListView x:Name="productsList" ItemsSource="{Binding}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Product ID" DisplayMemberBinding="{Binding ProductId}" />
+                            <GridViewColumn Header="Product name" DisplayMemberBinding="{Binding ProductName}" />
+                            <GridViewColumn Header="Unit price" DisplayMemberBinding="{Binding UnitPrice}" />
+                            <GridViewColumn Header="Qty" DisplayMemberBinding="{Binding Qty}" />
+                            <GridViewColumn Header="Discount" DisplayMemberBinding="{Binding Discount, Converter={StaticResource PercentageConverter}}" />
+                            <GridViewColumn Header="Stock" DisplayMemberBinding="{Binding Stock}" />
+                            <GridViewColumn Header="Discontinued" DisplayMemberBinding="{Binding Discontinued}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+</Window>

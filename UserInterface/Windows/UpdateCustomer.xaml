@@ -1,0 +1,53 @@
+﻿<Window x:Class="UserInterface.Windows.UpdateCustomer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface.Windows"
+        mc:Ignorable="d"
+        Title="Update customer" Height="550" Width="350" ResizeMode="CanMinimize">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Customer ID:"/>
+            <ComboBox x:Name="cbCustId" IsEditable="True" Margin="0,0,0,5" SelectionChanged="cbCustId_SelectionChanged"/>
+
+            <TextBlock Text="Company name:"/>
+            <TextBox x:Name="txtCompanyName" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Contact name:"/>
+            <TextBox x:Name="txtContactname" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Contact title:"/>
+            <TextBox x:Name="txtContactTitle" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Address:"/>
+            <TextBox x:Name="txtAddress" Margin="0,0,0,5"/>
+
+            <TextBlock Text="City:"/>
+            <TextBox x:Name="txtCity" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Region:"/>
+            <TextBox x:Name="txtRegion" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Postal code:"/>
+            <TextBox x:Name="txtPostalCode" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Country:"/>
+            <TextBox x:Name="txtCountry" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Phone:"/>
+            <TextBox x:Name="txtPhone" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Fax:"/>
+            <TextBox x:Name="txtFax" Margin="0,0,0,5"/>
+
+            <Grid x:Name="gridButtons" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" x:Name="btnSave" Style="{StaticResource SaveButtonStyle}" Click="btnSave_Click" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
